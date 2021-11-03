@@ -1,8 +1,0 @@
-{
-  "baseFontSize": 20,
-  "enabledCssSnippets": [
-    "preview_style",
-    "highlight_todos"
-  ],
-  "theme": "moonstone"
-}

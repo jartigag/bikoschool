@@ -1,7 +1,0 @@
-.markdown-preview-view ul > li.task-list-item {
-  background-color: var(--text-highlight-bg);
-}
-
-.markdown-preview-view ul > li.task-list-item.is-checked {
-  display: none;
-}

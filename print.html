@@ -1,0 +1,564 @@
+<!DOCTYPE HTML>
+<html lang="es" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Notas curso &quot;Desarrollo de software XP&quot; de BikoSchool (sept-dic2021, @jartigag)</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="20210910_-_vocabulario.html"><strong aria-hidden="true">1.</strong> 20210910 - vocabulario.md</a></li><li class="chapter-item expanded "><a href="20210911_-_git.html"><strong aria-hidden="true">2.</strong> 20210911 - git.md</a></li><li class="chapter-item expanded "><a href="20210911_-_javascript.html"><strong aria-hidden="true">3.</strong> 20210911 - javascript.md</a></li><li class="chapter-item expanded "><a href="20210914_-_typescript.html"><strong aria-hidden="true">4.</strong> 20210914 - typescript.md</a></li><li class="chapter-item expanded "><a href="20210917.1_-_node.html"><strong aria-hidden="true">5.</strong> 20210917.1 - node.md</a></li><li class="chapter-item expanded "><a href="20210917.2_-_introducción_a_web.html"><strong aria-hidden="true">6.</strong> 20210917.2 - introducción a web.md</a></li><li class="chapter-item expanded "><a href="20210918_-_html5_y_css3.html"><strong aria-hidden="true">7.</strong> 20210918 - html5 y css3.md</a></li><li class="chapter-item expanded "><a href="20210921_-_react_(I).html"><strong aria-hidden="true">8.</strong> 20210921 - react (I).md</a></li><li class="chapter-item expanded "><a href="20210924_-_react_(II).html"><strong aria-hidden="true">9.</strong> 20210924 - react (II).md</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Notas curso &quot;Desarrollo de software XP&quot; de BikoSchool (sept-dic2021, @jartigag)</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="vocabulario-tech"><a class="header" href="#vocabulario-tech">Vocabulario tech</a></h1>
+<p>UX, mobile, desktop, asistentes de voz
+Omnicanalidad, mailing, SEO</p>
+<p>TDD, testing, testing unitario
+Patrones de diseño, buenas prácticas de desarrollo, refactoring, pair programming
+Integración continua, desarrollo incremental, software craftsmanship, deuda técnica</p>
+<p>Agile, Scrum, Lean, Kanban [para gestión de cualquier trabajo creativo]
+XP (Extreme Programming) [marco de trabajo especializado en desarrollo]</p>
+<p>Frontend, backend</p>
+<p>HTML, CSS, JS
+React, Angular, Vue
+Node, PHP, Symphony</p>
+<hr />
+<blockquote>
+<p>&quot;La diferencia entre librería y framework reside en quién tiene el control&quot;
+– Pablo</p>
+</blockquote>
+<ul>
+<li>Librería: tu código llama a la librería. Ej.: ReactJS</li>
+<li>Framework: el framework llama a tu código. Ej.: Symphony, AngularJS</li>
+</ul>
+<hr />
+<p>Drupal, Wordpress, CMS</p>
+<p>Cloud, AWS, Lambda, CDN, API, API REST, GraphQL</p>
+<blockquote>
+<p>&quot;GraphQL te da los ingredientes y te montas el bocadillo que quieres.
+Con API REST tienes que elegir tu bocadillo entre los disponibles de la carta&quot;
+– Artiz</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="git"><a class="header" href="#git">Git</a></h1>
+<h2 id="conceptos"><a class="header" href="#conceptos">Conceptos</a></h2>
+<p>3 estados: <em>modified</em>, <em>staged</em> y <em>committed</em></p>
+<p>3 áreas de trabajo: <em>git dir</em> (<code>.git/</code>), <em>working dir</em> (copia de una versión) y <em>staging area</em> (próximo commit)</p>
+<h2 id="comandos"><a class="header" href="#comandos">Comandos</a></h2>
+<ul>
+<li><strong><code>git stash</code> con nombre</strong>: <code>git stash push -m &quot;readme updated&quot;</code></li>
+<li>en versiones nuevas de git, <code>git checkout -- .</code> = <code>git restore</code> y <code>git checkout branchB</code> = <code>git switch branchB</code></li>
+</ul>
+<h2 id="ojocuidao"><a class="header" href="#ojocuidao">Ojocuidao</a></h2>
+<p><strong>Detached HEAD</strong>: El commit en el que estamos no está en ninguna rama, por lo que si nos movemos de rapa este commit se perderá.</p>
+<p><strong><code>git merge</code></strong>: Solo se puede hacer fast-forward si, en el momento de hacer merge, no hay commits añadidos a la rama sobre la que escribimos (ej: master) después de haber empezado nuestra rama (en la que hemos trabajado).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="javascript"><a class="header" href="#javascript">Javascript</a></h1>
+<p>Versión <a href="https://262.ecma-international.org/6.0/">ES6</a></p>
+<h2 id="arrow-functions"><a class="header" href="#arrow-functions">Arrow functions</a></h2>
+<pre><code class="language-javascript">const d = () =&gt; new Date();
+const myConcat = (arr, arr2) =&gt; arr1.concat(arr2);
+console.log(myConcat([1,2],[3,4,5]));
+</code></pre>
+<h2 id="template-literals"><a class="header" href="#template-literals">Template literals</a></h2>
+<pre><code class="language-javascript">`&lt;li&gt;${arr[i]}&lt;/li&gt;`
+</code></pre>
+<h2 id="destructuring"><a class="header" href="#destructuring">Destructuring</a></h2>
+<pre><code class="language-javascript">const {name, age} = user;
+</code></pre>
+<pre><code class="language-javascript">const bicycle = {
+	gear: 2,
+	setGear(newGear) {
+		this.gear = newGear;
+	}
+};
+bicycle.setGear(3);
+</code></pre>
+<h2 id="spread-operator"><a class="header" href="#spread-operator">Spread operator</a></h2>
+<pre><code class="language-javascript">arr2 = [...arr1];
+</code></pre>
+<h2 id="mixin-iife"><a class="header" href="#mixin-iife">Mixin, IIFE</a></h2>
+<pre><code class="language-javascript">let funModule = (function(){
+	return {
+		isCuteMixin: function(obj) {
+			obj.isCute = function() {
+				return true;
+			}
+		},
+		...
+	}
+})();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="typescript"><a class="header" href="#typescript">Typescript</a></h1>
+<ul>
+<li>
+<p>Typescript añade tipado estático. Se transpila a Javascript.</p>
+</li>
+<li>
+<p>Las propiedades por lo general siempre privadas. Si hay que devolver su valor, mejor a través de un método.</p>
+</li>
+<li>
+<p>Everyday types:</p>
+<ul>
+<li>The primitives: string, number and boolean</li>
+<li>Arrays: <code>Array&lt;string&gt;</code></li>
+<li>Any</li>
+<li>Union Type: <code>let aTextOrNumber: number|string = 5;</code></li>
+</ul>
+</li>
+<li>
+<p>Interfaz: &quot;el contrato que tenemos que cumplir&quot;</p>
+</li>
+</ul>
+<pre><code class="language-typescript">class Cat implements Animal 
+</code></pre>
+<pre><code class="language-typescript">class Pokemon {
+	constructor(private nombre: string) {}
+}
+</code></pre>
+<h2 id="tell-dont-ask"><a class="header" href="#tell-dont-ask">&quot;Tell, don't ask&quot;</a></h2>
+<p>A una clase le tengo que pedir el nombre (<code>getName()</code>), no preguntarle por el nombre (<code>this.name</code>).</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+#to-do: Tipos genéricos</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nodejs"><a class="header" href="#nodejs">NodeJS</a></h1>
+<p>Entorno de ejecución de Javascript.</p>
+<ul>
+<li>Con el motor V8 de Chrome, en C++.</li>
+<li>Motor de alto rendimiento de Javascript y WebAssembly.</li>
+<li>Orientado a eventos asíncronos, hilo único.</li>
+</ul>
+<h2 id="gestores-de-paquetes"><a class="header" href="#gestores-de-paquetes">Gestores de paquetes</a></h2>
+<h3 id="npm"><a class="header" href="#npm">npm</a></h3>
+<pre><code class="language-shell">npm init # -&gt; package.json
+</code></pre>
+<pre><code class="language-shell">npm install # instala las dependencias de package.json
+			# npm ci es más rápido
+</code></pre>
+<pre><code class="language-shell">npm run # ejecuta un script definido en package.json
+</code></pre>
+<pre><code class="language-shell">npm start # ejecuta el script &quot;start&quot; de package.json
+</code></pre>
+<pre><code class="language-shell">npm install --save-dev/-D
+</code></pre>
+<h3 id="yarn"><a class="header" href="#yarn">yarn</a></h3>
+<p>yarn utiliza el registro de paquetes de npm</p>
+<h3 id="npx"><a class="header" href="#npx">npx</a></h3>
+<p>node package manager</p>
+<pre><code class="language-shell">npx create-react-app # = npm install create-react-app
+</code></pre>
+<h2 id="packagejson"><a class="header" href="#packagejson">package.json</a></h2>
+<pre><code class="language-shell">$ cat package.json 
+{
+  &quot;name&quot;: &quot;proj_node&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.ts&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;ts-node index.ts&quot;,
+	/*        ^^^ apunta al binario local, que desde node_modules
+	   está en .bin/ts-node -&gt; ts-node/dist/bin.js (16KB)
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;devDependencies&quot;: {
+    &quot;@types/node&quot;: &quot;^16.9.2&quot;,
+	// ^^^ para tener los tipos de las librerías (ej: http)
+    &quot;ts-node&quot;: &quot;^10.2.1&quot;,
+	// ^^^ evita que tengamos que hacer el build de ts a js
+    &quot;typescript&quot;: &quot;^4.4.3&quot;
+	// ^^^ para transpilar
+  }
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introducción-a-web"><a class="header" href="#introducción-a-web">Introducción a web</a></h1>
+<blockquote>
+<p>&quot;TCP es como el doble check de Whatsapp&quot; (definición 🔝)
+– Carlos</p>
+</blockquote>
+<h2 id="cómo-se-sirve-el-html-de-la-aplicación"><a class="header" href="#cómo-se-sirve-el-html-de-la-aplicación">¿Cómo se sirve el HTML de la aplicación?</a></h2>
+<p>Ficheros estáticos almacenados
+vs.
+Ficheros generados dinámicamente, bajo demanda</p>
+<h2 id="dónde-se-genera-el-html-de-la-aplicación"><a class="header" href="#dónde-se-genera-el-html-de-la-aplicación">¿Dónde se genera el HTML de la aplicación?</a></h2>
+<p>CSR/SPA (Client-Side Rendering / Single Page Application)
+vs.
+SSR/MPA (Server-Side Rendering / Multiple Page Application)</p>
+<hr />
+<p><a href="http://callbackhell.com/">Callback hell</a></p>
+<blockquote>
+<p>Asynchronous JavaScript, or JavaScript that uses callbacks, is hard to get right intuitively. A lot of code ends up looking like this:</p>
+<pre><code class="language-javascript">fs.readdir(source, function (err, files) {
+  if (err) {
+    console.log(err)
+  } else {
+    files.forEach(function (filename, fileIndex) {
+      console.log(filename)
+      gm(filename).size(function (err, values) {
+        if (err) {
+          console.log('err)
+        } else {
+          console.log(filename + ' : ' + values)
+          aspect = (values.width / values.height)
+          widths.forEach(function (width, widthIndex) {
+             ···
+          }.bind(this))
+        }
+      })
+    })
+  }
+})
+</code></pre>
+<p>See the pyramid shape and all the <code>})</code> at the end? Eek!</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="css"><a class="header" href="#css">CSS</a></h1>
+<p>Son estilos en cascada porque los estilos se aplican de arriba a abajo y, en caso de existir ambigüedad, siguen una serie de normas para resolverla.</p>
+<p>Gracias a CSS podemos llevar a cabo el concepto de separación de presentación (diseño, colores, formas - CSS) y contenido (información y datos - HTML).</p>
+<h2 id="espaciado-css"><a class="header" href="#espaciado-css">Espaciado CSS</a></h2>
+<p>Así se ve el <strong>modelo caja</strong> en el inspector de cada navegador (derecha: Chrome, izquierda: Firefox):
+<img src="inspector_navegadores.png" alt="" /></p>
+<ul>
+<li>Padding: entre elemento y elementos internos</li>
+<li>Margin: entre elemento y elementos externos</li>
+</ul>
+<p>Ejemplo:</p>
+<pre><code class="language-css">.warning {
+	padding-top: 100px; /* este no aplica,
+						   porque el siguiente lo sobreescribe */
+	padding: 50px;
+}
+</code></pre>
+<p>Los márgenes entre elementos del mismo nivel no se suman, sino que se queda el mayor.
+Con los paddings sí se suman (son una propiedad interna de la caja).</p>
+<blockquote>
+<p>Recomendación: usar por lo general padding-bottom. Sobre todo mantener un mismo criterio.</p>
+</blockquote>
+<h2 id="box-sizing"><a class="header" href="#box-sizing">Box-sizing</a></h2>
+<pre><code class="language-css">div {
+	box-sizing: content-box;
+	height: 200px;
+	width: 300px; /* width aplica al contenido */
+}
+</code></pre>
+<p>Content-box se rompe fácil intentando restar píxeles de margen al % de width.</p>
+<pre><code class="language-css">div {
+	box-sizing: border-box;
+	height: 200px;
+	width: 300px; /* width aplica al margen */
+}
+</code></pre>
+<p>Content-box se rompe fácil intentando restar píxeles de margen al % de width.
+<img src="box-sizing.png" alt="" /></p>
+<hr />
+<pre><code class="language-css">.page_container {
+	margin: 0 auto;
+}
+</code></pre>
+<hr />
+<h2 id="recursos-habituales"><a class="header" href="#recursos-habituales">Recursos habituales</a></h2>
+<ul>
+<li><a href="https://meyerweb.com/eric/tools/css/reset/"><code>reset.css</code></a></li>
+<li><a href="https://necolas.github.io/normalize.css/"><code>normalize.css</code></a></li>
+<li><a href="https://gist.github.com/marharyta/b83a3683085eb42867bbcefb34687af8"><code>reboot.css</code></a> (de <a href="https://getbootstrap.com/docs/4.0/content/reboot/">Bootstrap</a>)</li>
+</ul>
+<h2 id="cascada-y-herencia"><a class="header" href="#cascada-y-herencia">Cascada y herencia</a></h2>
+<ul>
+<li>En igualdad de condiciones, gana lo que está escrito después en el CSS.</li>
+<li>Los hijos heredan estilos del padre. No ocurre con todas las propiedades:<br />
+No ocurre con border, margins, padding, ...
+Sí ocurre con color, font, ...</li>
+<li>Se puede forzar la herencia asignando el valor inherit a la propiedad que queremos que aplique: <code>background-color: inherit;</code></li>
+</ul>
+<h2 id="clases-de-utilidad"><a class="header" href="#clases-de-utilidad">Clases de utilidad</a></h2>
+<p>Nos ayudan a separar responsabilidades (ej.: estilos visuales y estilos de layout).</p>
+<pre><code class="language-css">.margin-bottom-s {
+	margin-bottom: 12px;
+}
+</code></pre>
+<h2 id="flexbox"><a class="header" href="#flexbox">Flexbox</a></h2>
+<pre><code class="language-css">#pond { display: flex; }
+</code></pre>
+<p>Al asignarles el tipo flex a los divs, pasan a ocupar solo lo que su contenido necesita.</p>
+<hr />
+<p>Posible solución: usar media queries o:</p>
+<pre><code class="language-css">.card_content {
+	width: 300px;
+   flex-grow: 1;
+}
+</code></pre>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reactjs"><a class="header" href="#reactjs">ReactJS</a></h1>
+<ul>
+<li>Librería, no framework</li>
+<li>Componentes en vez de plantillas. Simplifica el trabajo con el DOM.</li>
+<li>Moderno: ES6, Babel (transpila JS moderno a compatible con todos los navegadores), Webpack (bundelizador, es decir, junta scripts de javascript).</li>
+</ul>
+<h2 id="flujo-de-datos"><a class="header" href="#flujo-de-datos">Flujo de datos</a></h2>
+<ul>
+<li>Se inicia un cambio de estado</li>
+<li>Se propaga al padre</li>
+<li>Y se extiende</li>
+</ul>
+<p><img src="one_way_data_flow-tkssharma.gitbook.io--react-training--day-01--react-js-3-principles--one-way-data-flow.gif" alt="" /></p>
+<h2 id="las-funciones-han-dejado-obsoletas-a-las-clases"><a class="header" href="#las-funciones-han-dejado-obsoletas-a-las-clases">Las funciones han dejado obsoletas a las clases</a></h2>
+<pre><code class="language-javascript">import React, {useState} from 'react';
+import ReactDom from 'react-dom';
+
+function Counter() { return ...; }
+
+ReactDOM.render(&lt;Counter/&gt;, document.getElementById('root'));
+</code></pre>
+<p>Antes se hacía:</p>
+<pre><code class="language-javascript">class Welcome extends React.Component {
+	render() { return ...; }
+}
+</code></pre>
+<h2 id="pasos"><a class="header" href="#pasos">Pasos</a></h2>
+<ol>
+<li>Coger input (el evento <code>onChange</code> recibe la propiedad <code>event</code>):</li>
+</ol>
+<pre><code class="language-javascript">const Header = ({ onFilter, onClear, filter }) =&gt; (
+  &lt;&gt;
+    &lt;ComicInput onChange={event =&gt; onFilter(event.target.value)} value={filter} /&gt;
+    &lt;Button marginLeft=&quot;base&quot; onClick={onClear}&gt;
+      Limpiar búsqueda
+    &lt;/Button&gt;
+  &lt;/&gt;
+)
+</code></pre>
+<ol start="2">
+<li>Inicializar variables:</li>
+</ol>
+<pre><code class="language-javascript">export const ComicsList = () =&gt; {
+  const [filter, setFilter] = React.useState('')
+</code></pre>
+<ol start="3">
+<li>Filtrar en lista:</li>
+</ol>
+<pre><code class="language-javascript">  const filteredComics = comics.filter(comic =&gt; comic.title.toLowerCase().includes(filter.toLowerCase()))
+  return ( 
+    &lt;Layout&gt;
+	   ...
+	  &lt;Header onFilter={setFilter} onClear={() =&gt; setFilter('')} filter={filter} /&gt; 
+      &lt;List comics={filteredComics} /&gt;
+	   ...
+    &lt;/Layout&gt;
+  )
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reactjs-1"><a class="header" href="#reactjs-1">ReactJS</a></h1>
+<h2 id="useeffect"><a class="header" href="#useeffect">useEffect</a></h2>
+<p>Es una función que se ejecuta después de useState (ejecuta efectos secundarios).</p>
+<pre><code class="language-javascript">useEffect( () =&gt; {}, [] )
+/*            ^^     ^^
+              |      └ deps: array de estados de los que depende
+              └ effect: función a la que aplica
+*/
+</code></pre>
+<p>Si la función es una llamada asíncrona,</p>
+<pre><code class="language-javascript">const fetchComics = async() =&gt; {
+	setComics( await api.allComics() )
+}
+useEffect( () =&gt; { fetchComics(), [] }
+</code></pre>
+<hr />
+<pre><code class="language-javascript">useEffect(() =&gt; {
+	async function fetchComics() {
+	  setComics(await getCommonComics(firstSelectedChar, secondSelectedChar))
+	  //        ^^^ es igual que:
+	  //getCommonComics(...).then( data =&gt; {setComics(data)} );
+	}
+	fetchComics()
+}, [firstSelectedChar, secondSelectedChar])
+</code></pre>
+<hr />
+<ul>
+<li>Por defecto, los efectos se ejecutan después de cada renderizado completo, pero pueden ejecutarse solo cuando ciertos valores han cambiado (deps).</li>
+<li>El modelo mental para entenderlo es pensar con qué parte del estado estamos sincronizando este &quot;efecto&quot;. No pensemos en cuándo se ejecuta</li>
+</ul>
+<h2 id="--to-do-usereducer"><a class="header" href="#--to-do-usereducer">[ ] #to-do useReducer</a></h2>
+<hr />
+<h2 id="arquitectura-hexagonal-avance"><a class="header" href="#arquitectura-hexagonal-avance">Arquitectura hexagonal (avance)</a></h2>
+<ul>
+<li>Dominio: tu negocio</li>
+<li>Infra: externo (ej: AWS)</li>
+<li>Servicio: coordina tu dominio con tu infra. También se conocen como &quot;casos de uso&quot;</li>
+</ul>
+<hr />
+<h2 id="routing"><a class="header" href="#routing">Routing</a></h2>
+<p><code>ui/views/Root.jsx</code>:</p>
+<pre><code class="language-javascript">import { Route, Switch } from 'react-router-dom'
+import { routes } from 'ui/routes'
+
+export const Root = () =&gt; (
+  &lt;&gt;
+    &lt;GlobalStyles /&gt;
+    &lt;Switch&gt;
+      &lt;Route exact path={routes.COMICS} component={ComicsList} /&gt;
+    &lt;/Switch&gt;
+  &lt;/&gt;
+)
+</code></pre>
+<p><code>ui/routes.js</code>:</p>
+<pre><code class="language-javascript">export const routes = {
+  COMICS: '/'
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>

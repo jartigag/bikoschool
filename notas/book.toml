@@ -1,0 +1,6 @@
+[book]
+authors = ["jartigag"]
+language = "es"
+multilingual = false
+src = "src"
+title = "Notas curso \"Desarrollo de software XP\" de BikoSchool (sept-dic2021, @jartigag)"

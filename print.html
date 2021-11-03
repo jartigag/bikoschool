@@ -321,7 +321,7 @@ SSR/MPA (Server-Side Rendering / Multiple Page Application)</p>
       console.log(filename)
       gm(filename).size(function (err, values) {
         if (err) {
-          console.log('err)
+          console.log('err')
         } else {
           console.log(filename + ' : ' + values)
           aspect = (values.width / values.height)
@@ -341,7 +341,7 @@ SSR/MPA (Server-Side Rendering / Multiple Page Application)</p>
 <p>Gracias a CSS podemos llevar a cabo el concepto de separación de presentación (diseño, colores, formas - CSS) y contenido (información y datos - HTML).</p>
 <h2 id="espaciado-css"><a class="header" href="#espaciado-css">Espaciado CSS</a></h2>
 <p>Así se ve el <strong>modelo caja</strong> en el inspector de cada navegador (derecha: Chrome, izquierda: Firefox):
-<img src="inspector_navegadores.png" alt="" /></p>
+<img src="_inspector_navegadores.png" alt="" /></p>
 <ul>
 <li>Padding: entre elemento y elementos internos</li>
 <li>Margin: entre elemento y elementos externos</li>
@@ -373,7 +373,7 @@ Con los paddings sí se suman (son una propiedad interna de la caja).</p>
 }
 </code></pre>
 <p>Content-box se rompe fácil intentando restar píxeles de margen al % de width.
-<img src="box-sizing.png" alt="" /></p>
+<img src="_box-sizing.png" alt="" /></p>
 <hr />
 <pre><code class="language-css">.page_container {
 	margin: 0 auto;
@@ -424,7 +424,7 @@ Sí ocurre con color, font, ...</li>
 <li>Se propaga al padre</li>
 <li>Y se extiende</li>
 </ul>
-<p><img src="one_way_data_flow-tkssharma.gitbook.io--react-training--day-01--react-js-3-principles--one-way-data-flow.gif" alt="" /></p>
+<p><img src="_one_way_data_flow-tkssharma.gitbook.io--react-training--day-01--react-js-3-principles--one-way-data-flow.gif" alt="" /></p>
 <h2 id="las-funciones-han-dejado-obsoletas-a-las-clases"><a class="header" href="#las-funciones-han-dejado-obsoletas-a-las-clases">Las funciones han dejado obsoletas a las clases</a></h2>
 <pre><code class="language-javascript">import React, {useState} from 'react';
 import ReactDom from 'react-dom';

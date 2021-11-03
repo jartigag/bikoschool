@@ -47,7 +47,7 @@
 |        |       |      |
 
 # XP
-> "El problema básico del desarrollo software es el riesgo."
+> "El problema básico del desarrollo de software es el riesgo."
 > – Kent Beck
 
 - Evitar riesgos de software

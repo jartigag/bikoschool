@@ -13,3 +13,4 @@ deploy: book
 
 book:
 	./notas/mdbook build notas/
+	sed -i 's#src="_#src="https://raw.githubusercontent.com/jartigag/curso-biko-desarrollo-software-xp/gh-pages/_#g' notas/book/*html

@@ -10,3 +10,6 @@
 - [20210921 - react (I)](./20210921_-_react_(I).md)
 - [20210924 - react (II)](./20210924_-_react_(II).md)
 - [20210928 - agile, scrum y xp](./20210928_-_agile,_scrum_y_xp.md)
+- [20211016 - tdd: intro](./20211016_-_tdd_intro.md)
+- [20211016 - tdd: kata fizzbuzz con predicados](./20211016_-_tdd_kata_fizzbuzz_con_predicados.md)
+- [20211019 - tdd: test doubles](./20211019_-_tdd_test_doubles.md)

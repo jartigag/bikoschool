@@ -13,6 +13,6 @@ En el *Assert* ("dobles de interacción", más frágiles):
 - **Mock**: valida que un comportamiento deseado se ha cumplido. Ej.: "Espero que el método X se haya llamado. Si no, lanzo error".
 - **Spy**: comprueba que algo ha ocurrido. Hasta que no le preguntas no habla (no falla).
 
-[![](test_doubles.png)](https://www.amazon.es/Agile-Technical-Practices-Distilled-Mastering/dp/1793412375)
+[![](_test_doubles.png)](https://www.amazon.es/Agile-Technical-Practices-Distilled-Mastering/dp/1793412375)
 
 No hay que usar dobles de tests para objetos/métodos simples.

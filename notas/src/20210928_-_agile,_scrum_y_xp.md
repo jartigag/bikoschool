@@ -15,6 +15,14 @@
 
 *Esto es, aunque valoramos los elementos de la derecha, valoramos más los de la izquierda.*
 
+## Principios del manifiesto ágil
+Elijo algunos de los 12 principios:
+
+6. El método más eficiente y efectivo de comunicar información entre el equipos y sus miembros es la **comunicación cara a cara** (mayor Ancho de Banda).
+8. Los procesos Ágiles promueven el **desarrollo sostenible** -> mantener un **ritmo constante de forma indefinida**.
+10. Es esencial la simplicidad -> el arte de **maximizar la cantidad de trabajo no realizado**.
+12. El equipo **reflexiona a intervalos regulares** para **cambiar su comportamiento en base a lo aprendido**.
+
 ## Prácticas y metodologías ágiles
 ### Maximizar el valor
 - Planificación en términos de producto

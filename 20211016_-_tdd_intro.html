@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>20210910 - vocabulario - Notas curso &quot;Desarrollo de software XP&quot; de BikoSchool (sept-dic2021, @jartigag)</title>
+        <title>20211016 - tdd: intro - Notas curso &quot;Desarrollo de software XP&quot; de BikoSchool (sept-dic2021, @jartigag)</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="20210910_-_vocabulario.html" class="active"><strong aria-hidden="true">1.</strong> 20210910 - vocabulario</a></li><li class="chapter-item expanded "><a href="20210911_-_git.html"><strong aria-hidden="true">2.</strong> 20210911 - git</a></li><li class="chapter-item expanded "><a href="20210911_-_javascript.html"><strong aria-hidden="true">3.</strong> 20210911 - javascript</a></li><li class="chapter-item expanded "><a href="20210914_-_typescript.html"><strong aria-hidden="true">4.</strong> 20210914 - typescript</a></li><li class="chapter-item expanded "><a href="20210917.1_-_node.html"><strong aria-hidden="true">5.</strong> 20210917.1 - node</a></li><li class="chapter-item expanded "><a href="20210917.2_-_introducción_a_web.html"><strong aria-hidden="true">6.</strong> 20210917.2 - introducción a web</a></li><li class="chapter-item expanded "><a href="20210918_-_html5_y_css3.html"><strong aria-hidden="true">7.</strong> 20210918 - html5 y css3</a></li><li class="chapter-item expanded "><a href="20210921_-_react_(I).html"><strong aria-hidden="true">8.</strong> 20210921 - react (I)</a></li><li class="chapter-item expanded "><a href="20210924_-_react_(II).html"><strong aria-hidden="true">9.</strong> 20210924 - react (II)</a></li><li class="chapter-item expanded "><a href="20210928_-_agile,_scrum_y_xp.html"><strong aria-hidden="true">10.</strong> 20210928 - agile, scrum y xp</a></li><li class="chapter-item expanded "><a href="20211016_-_tdd_intro.html"><strong aria-hidden="true">11.</strong> 20211016 - tdd: intro</a></li><li class="chapter-item expanded "><a href="20211016_-_tdd_kata_fizzbuzz_con_predicados.html"><strong aria-hidden="true">12.</strong> 20211016 - tdd: kata fizzbuzz con predicados</a></li><li class="chapter-item expanded "><a href="20211019_-_tdd_test_doubles.html"><strong aria-hidden="true">13.</strong> 20211019 - tdd: test doubles</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="20210910_-_vocabulario.html"><strong aria-hidden="true">1.</strong> 20210910 - vocabulario</a></li><li class="chapter-item expanded "><a href="20210911_-_git.html"><strong aria-hidden="true">2.</strong> 20210911 - git</a></li><li class="chapter-item expanded "><a href="20210911_-_javascript.html"><strong aria-hidden="true">3.</strong> 20210911 - javascript</a></li><li class="chapter-item expanded "><a href="20210914_-_typescript.html"><strong aria-hidden="true">4.</strong> 20210914 - typescript</a></li><li class="chapter-item expanded "><a href="20210917.1_-_node.html"><strong aria-hidden="true">5.</strong> 20210917.1 - node</a></li><li class="chapter-item expanded "><a href="20210917.2_-_introducción_a_web.html"><strong aria-hidden="true">6.</strong> 20210917.2 - introducción a web</a></li><li class="chapter-item expanded "><a href="20210918_-_html5_y_css3.html"><strong aria-hidden="true">7.</strong> 20210918 - html5 y css3</a></li><li class="chapter-item expanded "><a href="20210921_-_react_(I).html"><strong aria-hidden="true">8.</strong> 20210921 - react (I)</a></li><li class="chapter-item expanded "><a href="20210924_-_react_(II).html"><strong aria-hidden="true">9.</strong> 20210924 - react (II)</a></li><li class="chapter-item expanded "><a href="20210928_-_agile,_scrum_y_xp.html"><strong aria-hidden="true">10.</strong> 20210928 - agile, scrum y xp</a></li><li class="chapter-item expanded "><a href="20211016_-_tdd_intro.html" class="active"><strong aria-hidden="true">11.</strong> 20211016 - tdd: intro</a></li><li class="chapter-item expanded "><a href="20211016_-_tdd_kata_fizzbuzz_con_predicados.html"><strong aria-hidden="true">12.</strong> 20211016 - tdd: kata fizzbuzz con predicados</a></li><li class="chapter-item expanded "><a href="20211019_-_tdd_test_doubles.html"><strong aria-hidden="true">13.</strong> 20211019 - tdd: test doubles</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -134,41 +134,109 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="vocabulario-tech"><a class="header" href="#vocabulario-tech">Vocabulario tech</a></h1>
-<p>UX, mobile, desktop, asistentes de voz
-Omnicanalidad, mailing, SEO</p>
-<p>TDD, testing, testing unitario
-Patrones de diseño, buenas prácticas de desarrollo, refactoring, pair programming
-Integración continua, desarrollo incremental, software craftsmanship, deuda técnica</p>
-<p>Agile, Scrum, Lean, Kanban [para gestión de cualquier trabajo creativo]
-XP (Extreme Programming) [marco de trabajo especializado en desarrollo]</p>
-<p>Frontend, backend</p>
-<p>HTML, CSS, JS
-React, Angular, Vue
-Node, PHP, Symphony</p>
-<hr />
-<blockquote>
-<p>&quot;La diferencia entre librería y framework reside en quién tiene el control&quot;
-– Pablo</p>
-</blockquote>
+                        <h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
+<p>Un test es un bloque de código que ejecuta a otro código (SUT<sup class="footnote-reference"><a href="#1">1</a></sup>) para validar de forma automática su correcto funcionamiento.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>System Under Test</p>
+</div>
+<h2 id="tipos-de-tests"><a class="header" href="#tipos-de-tests">Tipos de tests</a></h2>
 <ul>
-<li>Librería: tu código llama a la librería. Ej.: ReactJS</li>
-<li>Framework: el framework llama a tu código. Ej.: Symphony, AngularJS</li>
+<li>Unitarios</li>
+<li>Integración</li>
+<li>Aceptación o extremo a extremo (end to end, E2E)</li>
+<li>Regresión visual</li>
 </ul>
+<h2 id="estructura-de-un-test"><a class="header" href="#estructura-de-un-test">Estructura de un test</a></h2>
+<pre><code>- Preparación / Ejecución / Aserción
+- Arrange     / Act       / Assert   (AAA)
+</code></pre>
+<p>Ejemplo de test escrito con <a href="https://en.wikipedia.org/wiki/Jest_(JavaScript_framework)">Jest</a>:</p>
+<pre><code class="language-javascript">describe(name: 'Sum', fun: () =&gt; {
+//^^^ conjunto de tests
+
+/*
+LEGIBILIDAD DE LOS TESTS: más importante en los tests incluso que en código de producción.
+- Claridad, simplicidad y densidad. Eliminar detalles innecesarios.
+- Utilizar el lenguaje de dominio para describirlos
+*/
+
+	it('should sum two numbers', () =&gt; {
+
+		// Arrange:
+		const num1 = 1;
+		const num2 = 2;
+
+		// Act:
+		const result = sum(num1, num2);
+
+		// Assert:
+		expect(result).toEqual(3);
+
+	})
+
+})
+</code></pre>
+<h2 id="cualidades-de-un-test"><a class="header" href="#cualidades-de-un-test">Cualidades de un test</a></h2>
+<p><strong>FIRST</strong>:</p>
+<ul>
+<li><strong>F</strong>ast</li>
+<li><strong>I</strong>ndependent</li>
+<li><strong>R</strong>epeteable</li>
+<li><strong>S</strong>elf-validating</li>
+<li><strong>T</strong>imely (oportuno: los programamos lo antes posible)</li>
+</ul>
+<h2 id="puntos-clave"><a class="header" href="#puntos-clave">Puntos clave</a></h2>
+<ul>
+<li>En cada test prueba UNA sola cosa que funciona.</li>
+<li>Testea el qué, no el cómo.</li>
+<li>Testea la interfaz pública de cada unidad, no los métodos privados (la interfaz pública solo llamará a los privados).</li>
+<li>Hay que mantener los tests, deben ser fáciles de entender, y sólo deben fallar cuando aquello que quieres probar no funciona.</li>
+<li>No testees código trivial, que no tiene lógica (p.ej. getters,
+setters).</li>
+<li>Elimina detalles innecesarios (incluso tests que se hayan convertido en innecesarios, una vez han cumplido su labor de ayudarte en el proceso de desarrollo).</li>
+<li>No escribas tests por buscar el 100% de cobertura. Haz test útiles que te ayuden a comprobar que el sistema funciona y te den fiabilidad a la hora de refactorizar.</li>
+</ul>
+<h1 id="tdd"><a class="header" href="#tdd">TDD</a></h1>
+<p>Es una técnica de desarrollo de software que consiste en escribir tests antes de escribir el código.</p>
+<p>TDD:</p>
+<ul>
+<li>No te guía a hacer un buen diseño.</li>
+<li>No es dogma.</li>
+<li>No es una técnica de testing.</li>
+</ul>
+<h2 id="beneficios-tdd"><a class="header" href="#beneficios-tdd">Beneficios TDD</a></h2>
+<ul>
+<li>Obliga a pensar en el comportamiento antes de programar.</li>
+<li>Da feedback rápido.</li>
+<li>Reduce el miedo a cambiar el código. Los tests actúan como red de seguridad.</li>
+<li>Guía la documentación. Usamos los tests como documentación viva.</li>
+</ul>
+<h2 id="las-tres-leyes-de-tdd"><a class="header" href="#las-tres-leyes-de-tdd">Las tres leyes de TDD</a></h2>
+<ol>
+<li>No está permitido escribir código de producción sin tener antes <strong>un test unitario que falle</strong>.</li>
+<li>No está permitido escribir más código de test que el mínimo para hacer que el test falle.</li>
+<li>No está permitido escribir más código de producción que el suficiente para que el test que fallaba ahora pase.</li>
+</ol>
+<h2 id="ciclo-de-tdd-rojo-verde-refactor"><a class="header" href="#ciclo-de-tdd-rojo-verde-refactor">Ciclo de TDD: rojo-verde-refactor</a></h2>
+<pre><code class="language-mermaid">flowchart LR
+id1(test que falla) --&gt; id2(test que pasa) --&gt; id3(refactorizar test) --&gt; id1
+</code></pre>
 <hr />
-<p>Drupal, Wordpress, CMS</p>
-<p>Cloud, AWS, Lambda, CDN, API, API REST, GraphQL</p>
 <blockquote>
-<p>&quot;GraphQL te da los ingredientes y te montas el bocadillo que quieres.
-Con API REST tienes que elegir tu bocadillo entre los disponibles de la carta&quot;
-– Artiz</p>
+<p>&quot;TDD es un poco <em>ir a romper tu código</em>, porque así ves dónde lo puedes mejorar.&quot;
+– Stefan</p>
 </blockquote>
+<hr />
+<p>La idea de TDD es ir desarrollando <strong>a un ritmo constante, sostenible y controlado</strong>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="next" href="20210911_-_git.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="prev" href="20210928_-_agile,_scrum_y_xp.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="20211016_-_tdd_kata_fizzbuzz_con_predicados.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -177,7 +245,10 @@ Con API REST tienes que elegir tu bocadillo entre los disponibles de la carta&qu
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="next" href="20210911_-_git.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="prev" href="20210928_-_agile,_scrum_y_xp.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="20211016_-_tdd_kata_fizzbuzz_con_predicados.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

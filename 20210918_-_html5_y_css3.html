@@ -146,9 +146,9 @@
 </ul>
 <p>Ejemplo:</p>
 <pre><code class="language-css">.warning {
-	padding-top: 100px; /* este no aplica,
-						   porque el siguiente lo sobreescribe */
-	padding: 50px;
+    padding-top: 100px; /* este no aplica,
+                           porque el siguiente lo sobreescribe */
+    padding: 50px;
 }
 </code></pre>
 <p>Los márgenes entre elementos del mismo nivel no se suman, sino que se queda el mayor.
@@ -158,23 +158,23 @@ Con los paddings sí se suman (son una propiedad interna de la caja).</p>
 </blockquote>
 <h2 id="box-sizing"><a class="header" href="#box-sizing">Box-sizing</a></h2>
 <pre><code class="language-css">div {
-	box-sizing: content-box;
-	height: 200px;
-	width: 300px; /* width aplica al contenido */
+    box-sizing: content-box;
+    height: 200px;
+    width: 300px; /* width aplica al contenido */
 }
 </code></pre>
 <p>Content-box se rompe fácil intentando restar píxeles de margen al % de width.</p>
 <pre><code class="language-css">div {
-	box-sizing: border-box;
-	height: 200px;
-	width: 300px; /* width aplica al margen */
+    box-sizing: border-box;
+    height: 200px;
+    width: 300px; /* width aplica al margen */
 }
 </code></pre>
 <p>Content-box se rompe fácil intentando restar píxeles de margen al % de width.
 <img src="_box-sizing.png" alt="" /></p>
 <hr />
 <pre><code class="language-css">.page_container {
-	margin: 0 auto;
+    margin: 0 auto;
 }
 </code></pre>
 <hr />
@@ -187,7 +187,7 @@ Con los paddings sí se suman (son una propiedad interna de la caja).</p>
 <h2 id="cascada-y-herencia"><a class="header" href="#cascada-y-herencia">Cascada y herencia</a></h2>
 <ul>
 <li>En igualdad de condiciones, gana lo que está escrito después en el CSS.</li>
-<li>Los hijos heredan estilos del padre. No ocurre con todas las propiedades:<br />
+<li>Los hijos heredan estilos del padre. No ocurre con todas las propiedades:
 No ocurre con border, margins, padding, ...
 Sí ocurre con color, font, ...</li>
 <li>Se puede forzar la herencia asignando el valor inherit a la propiedad que queremos que aplique: <code>background-color: inherit;</code></li>
@@ -195,7 +195,7 @@ Sí ocurre con color, font, ...</li>
 <h2 id="clases-de-utilidad"><a class="header" href="#clases-de-utilidad">Clases de utilidad</a></h2>
 <p>Nos ayudan a separar responsabilidades (ej.: estilos visuales y estilos de layout).</p>
 <pre><code class="language-css">.margin-bottom-s {
-	margin-bottom: 12px;
+   margin-bottom: 12px;
 }
 </code></pre>
 <h2 id="flexbox"><a class="header" href="#flexbox">Flexbox</a></h2>
@@ -205,7 +205,7 @@ Sí ocurre con color, font, ...</li>
 <hr />
 <p>Posible solución: usar media queries o:</p>
 <pre><code class="language-css">.card_content {
-	width: 300px;
+   width: 300px;
    flex-grow: 1;
 }
 </code></pre>

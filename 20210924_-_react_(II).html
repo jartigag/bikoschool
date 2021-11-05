@@ -147,7 +147,7 @@
 <pre><code class="language-javascript">const fetchComics = async() =&gt; {
 	setComics( await api.allComics() )
 }
-useEffect( () =&gt; { fetchComics(), [] }
+useEffect( () =&gt; { fetchComics() }, [] )
 </code></pre>
 <hr />
 <pre><code class="language-javascript">useEffect(() =&gt; {

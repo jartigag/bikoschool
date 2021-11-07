@@ -14,3 +14,4 @@
 - [20211016 - tdd: intro](./20211016_-_tdd_intro.md)
 - [20211016 - tdd: kata fizzbuzz con predicados](./20211016_-_tdd_kata_fizzbuzz_con_predicados.md)
 - [20211019 - tdd: test doubles](./20211019_-_tdd_test_doubles.md)
+- [20211106 - arquitectura hexagonal](./20211106_-_arquitectura_hexagonal.md)

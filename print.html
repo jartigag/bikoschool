@@ -793,9 +793,9 @@ export const fizzBuzz = (ruleSet: Rule[]) =&gt; (n: number) =&gt;
 <ul>
 <li>the set of design decisions that must be made early</li>
 <li>the decisions that you wish you could get right eary</li>
-<li>the decisions that are hard to change
-– Martin Fowler, <a href="https://youtu.be/DngAZyWMGR0">&quot;Making Architecture Matter&quot;</a></li>
+<li>the decisions that are hard to change</li>
 </ul>
+<p>– Martin Fowler, <a href="https://youtu.be/DngAZyWMGR0">&quot;Making Architecture Matter&quot;</a></p>
 </blockquote>
 <h2 id="design-payoff-line"><a class="header" href="#design-payoff-line">Design Payoff Line</a></h2>
 <p><a href="https://martinfowler.com/bliki/DesignStaminaHypothesis.html"><img src="https://martinfowler.com/bliki/images/designStaminaGraph.gif" alt="" /></a></p>
@@ -809,7 +809,7 @@ export const fizzBuzz = (ruleSet: Rule[]) =&gt; (n: number) =&gt;
 <h2 id="arquitecturas-limpias"><a class="header" href="#arquitecturas-limpias">Arquitecturas limpias</a></h2>
 <p><a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"><img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="" /></a></p>
 <h4 id="regla-de-dependencia"><a class="header" href="#regla-de-dependencia">Regla de dependencia</a></h4>
-<p>Las caps de fuera conocen lo que hay inmediatamente dentro, pero las capas de dentro no saben nada sobre lo que hay fuera.</p>
+<p>Las capas de fuera conocen lo que hay inmediatamente dentro, pero las capas de dentro no saben nada sobre lo que hay fuera.</p>
 <h2 id="arquitectura-hexagonal-1"><a class="header" href="#arquitectura-hexagonal-1">Arquitectura hexagonal</a></h2>
 <p><a href="https://fideloper.com/hexagonal-architecture"><img src="https://raw.githubusercontent.com/jartigag/curso-biko-desarrollo-software-xp/gh-pages/_arquitectura_hexagonal.png" alt="" /></a></p>
 <h3 id="capa-de-dominio"><a class="header" href="#capa-de-dominio">Capa de dominio</a></h3>
@@ -837,6 +837,7 @@ export const fizzBuzz = (ruleSet: Rule[]) =&gt; (n: number) =&gt;
 <p>¿Por qué hacer una abstracción cuando solo tienes una implementación?
 Porque el coste a futuro de cambiar eso es mucho más caro si no hacemos la abstracción de primeras.</p>
 <hr />
+<h2 id="estructura-de-carpetas"><a class="header" href="#estructura-de-carpetas">Estructura de carpetas</a></h2>
 <pre><code>src/
 ├── core/
 │   ├── domain/

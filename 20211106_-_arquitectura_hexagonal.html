@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>20211019 - tdd: test doubles - Notas curso &quot;Desarrollo de software XP&quot; de BikoSchool (sept-dic2021, @jartigag)</title>
+        <title>20211106 - arquitectura hexagonal - Notas curso &quot;Desarrollo de software XP&quot; de BikoSchool (sept-dic2021, @jartigag)</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> readme</a></li><li class="chapter-item expanded "><a href="20210910_-_vocabulario.html"><strong aria-hidden="true">2.</strong> 20210910 - vocabulario</a></li><li class="chapter-item expanded "><a href="20210911_-_git.html"><strong aria-hidden="true">3.</strong> 20210911 - git</a></li><li class="chapter-item expanded "><a href="20210911_-_javascript.html"><strong aria-hidden="true">4.</strong> 20210911 - javascript</a></li><li class="chapter-item expanded "><a href="20210914_-_typescript.html"><strong aria-hidden="true">5.</strong> 20210914 - typescript</a></li><li class="chapter-item expanded "><a href="20210917.1_-_node.html"><strong aria-hidden="true">6.</strong> 20210917.1 - node</a></li><li class="chapter-item expanded "><a href="20210917.2_-_introducción_a_web.html"><strong aria-hidden="true">7.</strong> 20210917.2 - introducción a web</a></li><li class="chapter-item expanded "><a href="20210918_-_html5_y_css3.html"><strong aria-hidden="true">8.</strong> 20210918 - html5 y css3</a></li><li class="chapter-item expanded "><a href="20210921_-_react_(I).html"><strong aria-hidden="true">9.</strong> 20210921 - react (I)</a></li><li class="chapter-item expanded "><a href="20210924_-_react_(II).html"><strong aria-hidden="true">10.</strong> 20210924 - react (II)</a></li><li class="chapter-item expanded "><a href="20210928_-_agile,_scrum_y_xp.html"><strong aria-hidden="true">11.</strong> 20210928 - agile, scrum y xp</a></li><li class="chapter-item expanded "><a href="20211016_-_tdd_intro.html"><strong aria-hidden="true">12.</strong> 20211016 - tdd: intro</a></li><li class="chapter-item expanded "><a href="20211016_-_tdd_kata_fizzbuzz_con_predicados.html"><strong aria-hidden="true">13.</strong> 20211016 - tdd: kata fizzbuzz con predicados</a></li><li class="chapter-item expanded "><a href="20211019_-_tdd_test_doubles.html" class="active"><strong aria-hidden="true">14.</strong> 20211019 - tdd: test doubles</a></li><li class="chapter-item expanded "><a href="20211106_-_arquitectura_hexagonal.html"><strong aria-hidden="true">15.</strong> 20211106 - arquitectura hexagonal</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> readme</a></li><li class="chapter-item expanded "><a href="20210910_-_vocabulario.html"><strong aria-hidden="true">2.</strong> 20210910 - vocabulario</a></li><li class="chapter-item expanded "><a href="20210911_-_git.html"><strong aria-hidden="true">3.</strong> 20210911 - git</a></li><li class="chapter-item expanded "><a href="20210911_-_javascript.html"><strong aria-hidden="true">4.</strong> 20210911 - javascript</a></li><li class="chapter-item expanded "><a href="20210914_-_typescript.html"><strong aria-hidden="true">5.</strong> 20210914 - typescript</a></li><li class="chapter-item expanded "><a href="20210917.1_-_node.html"><strong aria-hidden="true">6.</strong> 20210917.1 - node</a></li><li class="chapter-item expanded "><a href="20210917.2_-_introducción_a_web.html"><strong aria-hidden="true">7.</strong> 20210917.2 - introducción a web</a></li><li class="chapter-item expanded "><a href="20210918_-_html5_y_css3.html"><strong aria-hidden="true">8.</strong> 20210918 - html5 y css3</a></li><li class="chapter-item expanded "><a href="20210921_-_react_(I).html"><strong aria-hidden="true">9.</strong> 20210921 - react (I)</a></li><li class="chapter-item expanded "><a href="20210924_-_react_(II).html"><strong aria-hidden="true">10.</strong> 20210924 - react (II)</a></li><li class="chapter-item expanded "><a href="20210928_-_agile,_scrum_y_xp.html"><strong aria-hidden="true">11.</strong> 20210928 - agile, scrum y xp</a></li><li class="chapter-item expanded "><a href="20211016_-_tdd_intro.html"><strong aria-hidden="true">12.</strong> 20211016 - tdd: intro</a></li><li class="chapter-item expanded "><a href="20211016_-_tdd_kata_fizzbuzz_con_predicados.html"><strong aria-hidden="true">13.</strong> 20211016 - tdd: kata fizzbuzz con predicados</a></li><li class="chapter-item expanded "><a href="20211019_-_tdd_test_doubles.html"><strong aria-hidden="true">14.</strong> 20211019 - tdd: test doubles</a></li><li class="chapter-item expanded "><a href="20211106_-_arquitectura_hexagonal.html" class="active"><strong aria-hidden="true">15.</strong> 20211106 - arquitectura hexagonal</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -134,33 +134,74 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="test-doubles"><a class="header" href="#test-doubles">Test doubles</a></h1>
-<p>Como los dobles del cine de acción.</p>
-<p>También se conocen como &quot;mocks&quot;, aunque estos son un tipo concreto de doble (<a href="https://martinfowler.com/articles/mocksArentStubs.html">&quot;mocks aren't stubs&quot;</a>).</p>
-<h2 id="tipos-de-dobles"><a class="header" href="#tipos-de-dobles">Tipos de dobles</a></h2>
-<p>En el <em>Arrange</em> (&quot;dobles de estado&quot;):</p>
+                        <h1 id="arquitectura-hexagonal"><a class="header" href="#arquitectura-hexagonal">Arquitectura Hexagonal</a></h1>
+<p>La arquitectura de software se refiere al conjunto de reglas que decidimos como equipo al definir cómo diseñamos nuestro software.</p>
+<blockquote>
 <ul>
-<li><strong>Dummy</strong>: objeto que se pasa para cumplir una dependencia. No son comunes en sistemas bien diseñados.</li>
-<li><strong>Stub</strong>: reemplaza la respuesta de una llamada a API/BBDD. Siempre devuelve datos.</li>
-<li><strong>Fake</strong>: es un stub hecho a mano, además implementando cierta lógica. Ej.: BBDD en memoria, enrutador con con ciertas rutas predefinidas.</li>
+<li>the set of design decisions that must be made early</li>
+<li>the decisions that you wish you could get right eary</li>
+<li>the decisions that are hard to change
+– Martin Fowler, <a href="https://youtu.be/DngAZyWMGR0">&quot;Making Architecture Matter&quot;</a></li>
 </ul>
-<p>En el <em>Assert</em> (&quot;dobles de interacción&quot;, más frágiles):</p>
+</blockquote>
+<h2 id="design-payoff-line"><a class="header" href="#design-payoff-line">Design Payoff Line</a></h2>
+<p><a href="https://martinfowler.com/bliki/DesignStaminaHypothesis.html"><img src="https://martinfowler.com/bliki/images/designStaminaGraph.gif" alt="" /></a></p>
+<h3 id="complejidad-esencial-vs-complejidad-accidental"><a class="header" href="#complejidad-esencial-vs-complejidad-accidental">Complejidad esencial vs. Complejidad accidental</a></h3>
+<h2 id="tipos-de-arquitecturas"><a class="header" href="#tipos-de-arquitecturas">Tipos de arquitecturas</a></h2>
 <ul>
-<li><strong>Mock</strong>: valida que un comportamiento deseado se ha cumplido. Ej.: &quot;Espero que el método X se haya llamado. Si no, lanzo error&quot;.</li>
-<li><strong>Spy</strong>: comprueba que algo ha ocurrido. Hasta que no le preguntas no habla (no falla).</li>
+<li>Old School (&quot;a batalla&quot;, sin arquitectura)</li>
+<li>MVC</li>
+<li>Arquitecturas limpias (arquitectura hexagonal)</li>
 </ul>
-<p><a href="https://www.amazon.es/Agile-Technical-Practices-Distilled-Mastering/dp/1793412375"><img src="https://raw.githubusercontent.com/jartigag/curso-biko-desarrollo-software-xp/gh-pages/_test_doubles.png" alt="" /></a></p>
-<p>No hay que usar dobles de tests para objetos/métodos simples.</p>
+<h2 id="arquitecturas-limpias"><a class="header" href="#arquitecturas-limpias">Arquitecturas limpias</a></h2>
+<p><a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"><img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="" /></a></p>
+<h4 id="regla-de-dependencia"><a class="header" href="#regla-de-dependencia">Regla de dependencia</a></h4>
+<p>Las caps de fuera conocen lo que hay inmediatamente dentro, pero las capas de dentro no saben nada sobre lo que hay fuera.</p>
+<h2 id="arquitectura-hexagonal-1"><a class="header" href="#arquitectura-hexagonal-1">Arquitectura hexagonal</a></h2>
+<p><a href="https://fideloper.com/hexagonal-architecture"><img src="https://raw.githubusercontent.com/jartigag/curso-biko-desarrollo-software-xp/gh-pages/_arquitectura_hexagonal.png" alt="" /></a></p>
+<h3 id="capa-de-dominio"><a class="header" href="#capa-de-dominio">Capa de dominio</a></h3>
+<p>A la que pertenece lo relacionado con el problema específico del mundo real que tratamos de resolver desarrollando software</p>
+<p><strong>Entidad</strong>: Objeto del modelo con identidad propia, distinguible de otros objetos con los mismos atributos (ej.: usuarios).</p>
+<p><strong>Value Object</strong>: Clase que se identifica por el valor que representa, no por su identidad (ej.: números, fechas, monedas, URLs). Por ejemplo, podrían ser value objects para nosotros dos productos que cuesten 5€, por ser idénticos en cuanto a precio.</p>
+<h3 id="capa-de-aplicación"><a class="header" href="#capa-de-aplicación">Capa de aplicación</a></h3>
+<p>Engloba los &quot;casos de uso&quot; o &quot;servicios de aplicación&quot; que representan de forma atómica las funcionalidades del sistema.</p>
+<p>Los casos de uso pueden hacer de &quot;barrera transaccional&quot; (o suceden o no suceden, no se quedan a medias) con el sistema de persistencia.</p>
+<h3 id="capa-de-infraestructura"><a class="header" href="#capa-de-infraestructura">Capa de infraestructura</a></h3>
+<p>Es código que cambia en función de decisiones externas (ej.: librerías).</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+#to-do: Principio de Inversión de Dependencias</li>
+<li><input disabled="" type="checkbox"/>
+#to-do: Patrón de diseño de Inyección de Dependencias</li>
+</ul>
+<hr />
+<p>ej.: abstracción: <code>$Invoice</code><strong><code>Repository</code></strong></p>
+<blockquote>
+<p>Queremos conseguir <strong>que los Casos de uso dependan de algo abstracto</strong></p>
+</blockquote>
+<p>ej.: que no dependa de qué base de datos usamos, sino que directamente tengamos un <code>invoiceRepository.save(invoice)</code></p>
+<hr />
+<p>¿Por qué hacer una abstracción cuando solo tienes una implementación?
+Porque el coste a futuro de cambiar eso es mucho más caro si no hacemos la abstracción de primeras.</p>
+<hr />
+<pre><code>src/
+├── core/
+│   ├── domain/
+│   ├── infrastructure/
+│   └── services/
+└── ui/    # ui/ es infraestructura, pero la sacan fuera por ser
+	|      # muy grande e incluso desacoplada en cuanto a lenguaje
+    ├── components/
+    ├── theme/
+    └── views/
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="20211016_-_tdd_kata_fizzbuzz_con_predicados.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="20211019_-_tdd_test_doubles.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a rel="next" href="20211106_-_arquitectura_hexagonal.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
                     </nav>
@@ -168,11 +209,8 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="20211016_-_tdd_kata_fizzbuzz_con_predicados.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="20211019_-_tdd_test_doubles.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a rel="next" href="20211106_-_arquitectura_hexagonal.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 

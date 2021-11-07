@@ -4,6 +4,7 @@ La arquitectura de software se refiere al conjunto de reglas que decidimos como 
 > - the set of design decisions that must be made early
 > - the decisions that you wish you could get right eary
 > - the decisions that are hard to change
+>
 > – Martin Fowler, ["Making Architecture Matter"](https://youtu.be/DngAZyWMGR0)
 
 ## Design Payoff Line
@@ -21,7 +22,7 @@ La arquitectura de software se refiere al conjunto de reglas que decidimos como 
 [![](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
 #### Regla de dependencia
-Las caps de fuera conocen lo que hay inmediatamente dentro, pero las capas de dentro no saben nada sobre lo que hay fuera.
+Las capas de fuera conocen lo que hay inmediatamente dentro, pero las capas de dentro no saben nada sobre lo que hay fuera.
 
 ## Arquitectura hexagonal
 [![](_arquitectura_hexagonal.png)](https://fideloper.com/hexagonal-architecture)
@@ -55,7 +56,7 @@ ej.: que no dependa de qué base de datos usamos, sino que directamente tengamos
 Porque el coste a futuro de cambiar eso es mucho más caro si no hacemos la abstracción de primeras.
 
 ---
-
+## Estructura de carpetas
 ```
 src/
 ├── core/

@@ -155,8 +155,6 @@
 </ul>
 <h2 id="arquitecturas-limpias"><a class="header" href="#arquitecturas-limpias">Arquitecturas limpias</a></h2>
 <p><a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"><img src="https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg" alt="" /></a></p>
-<h4 id="regla-de-dependencia"><a class="header" href="#regla-de-dependencia">Regla de dependencia</a></h4>
-<p>Las capas de fuera conocen lo que hay inmediatamente dentro, pero las capas de dentro no saben nada sobre lo que hay fuera.</p>
 <h2 id="arquitectura-hexagonal-1"><a class="header" href="#arquitectura-hexagonal-1">Arquitectura hexagonal</a></h2>
 <p><a href="https://fideloper.com/hexagonal-architecture"><img src="https://raw.githubusercontent.com/jartigag/curso-biko-desarrollo-software-xp/gh-pages/_arquitectura_hexagonal.png" alt="" /></a></p>
 <h3 id="capa-de-dominio"><a class="header" href="#capa-de-dominio">Capa de dominio</a></h3>
@@ -168,22 +166,28 @@
 <p>Los casos de uso pueden hacer de &quot;barrera transaccional&quot; (o suceden o no suceden, no se quedan a medias) con el sistema de persistencia.</p>
 <h3 id="capa-de-infraestructura"><a class="header" href="#capa-de-infraestructura">Capa de infraestructura</a></h3>
 <p>Es código que cambia en función de decisiones externas (ej.: librerías).</p>
-<ul>
-<li><input disabled="" type="checkbox"/>
-#to-do: Principio de Inversión de Dependencias</li>
-<li><input disabled="" type="checkbox"/>
-#to-do: Patrón de diseño de Inyección de Dependencias</li>
-</ul>
-<hr />
+<h3 id="regla-de-dependencia"><a class="header" href="#regla-de-dependencia">Regla de dependencia</a></h3>
+<p>Las capas de fuera conocen lo que hay inmediatamente dentro, pero las capas de dentro no saben nada sobre lo que hay fuera.</p>
+<h3 id="principio-de-inversión-de-dependencias"><a class="header" href="#principio-de-inversión-de-dependencias">Principio de Inversión de Dependencias</a></h3>
+<p>Las cosas más importantes (dominio) no deben depender de las cosas menos importantes (infraestructura: frameworks o librerías para el acceso a datos, red, framework de vistas utilizado, etc.).</p>
+<blockquote>
+<p>El <em>principio de inversión de dependencias</em> dice que los módulos de alto nivel no deberían depender de los de bajo nivel, ni las abstracciones de detalles.<a href="https://books.google.es/books?id=0HYhAQAAIAAJ&amp;redir_esc=y&amp;hl=es">¹</a>
+– Robert C. Martin (&quot;Uncle Bob&quot;)</p>
+</blockquote>
 <p>ej.: abstracción: <code>$Invoice</code><strong><code>Repository</code></strong></p>
 <blockquote>
-<p>Queremos conseguir <strong>que los Casos de uso dependan de algo abstracto</strong></p>
+<p>Queremos conseguir <strong>que los Casos de Uso dependan de algo abstracto</strong></p>
 </blockquote>
 <p>ej.: que no dependa de qué base de datos usamos, sino que directamente tengamos un <code>invoiceRepository.save(invoice)</code></p>
-<hr />
 <p>¿Por qué hacer una abstracción cuando solo tienes una implementación?
 Porque el coste a futuro de cambiar eso es mucho más caro si no hacemos la abstracción de primeras.</p>
-<hr />
+<h3 id="patrón-de-diseño-de-inyección-de-dependencias"><a class="header" href="#patrón-de-diseño-de-inyección-de-dependencias">Patrón de diseño de Inyección de Dependencias</a></h3>
+<blockquote>
+<p>Un objeto (cliente) recibe otro objeto (servicio) del cual depende.<a href="https://books.google.es/books?id=0HYhAQAAIAAJ&amp;redir_esc=y&amp;hl=es">¹</a>
+Lo que busca este patrón de diseño es extraer la responsabilidad de creación de instancias de un componente para delegarla en otro.
+– Martin Fowler</p>
+</blockquote>
+<p>[ ] #to-do: asimilar el patrón de diseño de Inyección de Dependencias</p>
 <h2 id="estructura-de-carpetas"><a class="header" href="#estructura-de-carpetas">Estructura de carpetas</a></h2>
 <pre><code>src/
 ├── core/
@@ -191,7 +195,7 @@ Porque el coste a futuro de cambiar eso es mucho más caro si no hacemos la abst
 │   ├── infrastructure/
 │   └── services/
 └── ui/    # ui/ es infraestructura, pero la sacan fuera por ser
-	|      # muy grande e incluso desacoplada en cuanto a lenguaje
+	│      # muy grande e incluso desacoplada en cuanto a lenguaje
     ├── components/
     ├── theme/
     └── views/

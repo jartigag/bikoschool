@@ -21,9 +21,6 @@ La arquitectura de software se refiere al conjunto de reglas que decidimos como 
 
 [![](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-#### Regla de dependencia
-Las capas de fuera conocen lo que hay inmediatamente dentro, pero las capas de dentro no saben nada sobre lo que hay fuera.
-
 ## Arquitectura hexagonal
 [![](_arquitectura_hexagonal.png)](https://fideloper.com/hexagonal-architecture)
 
@@ -42,20 +39,30 @@ Los casos de uso pueden hacer de "barrera transaccional" (o suceden o no suceden
 ### Capa de infraestructura
 Es código que cambia en función de decisiones externas (ej.: librerías).
 
-- [ ] #to-do: Principio de Inversión de Dependencias
-- [ ] #to-do: Patrón de diseño de Inyección de Dependencias  
+### Regla de dependencia
+Las capas de fuera conocen lo que hay inmediatamente dentro, pero las capas de dentro no saben nada sobre lo que hay fuera.
 
----
+### Principio de Inversión de Dependencias
+Las cosas más importantes (dominio) no deben depender de las cosas menos importantes (infraestructura: frameworks o librerías para el acceso a datos, red, framework de vistas utilizado, etc.).
+
+> El _principio de inversión de dependencias_ dice que los módulos de alto nivel no deberían depender de los de bajo nivel, ni las abstracciones de detalles.[¹](https://books.google.es/books?id=0HYhAQAAIAAJ&redir_esc=y&hl=es)
+> – Robert C. Martin ("Uncle Bob")
+
 ej.: abstracción: `$Invoice`**`Repository`**
-> Queremos conseguir **que los Casos de uso dependan de algo abstracto**
+> Queremos conseguir **que los Casos de Uso dependan de algo abstracto**
 
 ej.: que no dependa de qué base de datos usamos, sino que directamente tengamos un `invoiceRepository.save(invoice)`
 
----
 ¿Por qué hacer una abstracción cuando solo tienes una implementación?
 Porque el coste a futuro de cambiar eso es mucho más caro si no hacemos la abstracción de primeras.
 
----
+### Patrón de diseño de Inyección de Dependencias
+> Un objeto (cliente) recibe otro objeto (servicio) del cual depende.[¹](https://books.google.es/books?id=0HYhAQAAIAAJ&redir_esc=y&hl=es)
+> Lo que busca este patrón de diseño es extraer la responsabilidad de creación de instancias de un componente para delegarla en otro.
+> – Martin Fowler
+
+[ ] #to-do: asimilar el patrón de diseño de Inyección de Dependencias
+
 ## Estructura de carpetas
 ```
 src/
@@ -64,7 +71,7 @@ src/
 │   ├── infrastructure/
 │   └── services/
 └── ui/    # ui/ es infraestructura, pero la sacan fuera por ser
-	|      # muy grande e incluso desacoplada en cuanto a lenguaje
+	│      # muy grande e incluso desacoplada en cuanto a lenguaje
     ├── components/
     ├── theme/
     └── views/

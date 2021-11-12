@@ -56,9 +56,11 @@ biko/
 ├── 2021-10-30-projVehic_api/
 │   ├── Express_y_SuperTest_1.pdf
 │   └── [semantic-commit-messages.md](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
-└── 2021-11-06-arquitectura_hexagonal/
+├── 2021-11-06-arquitectura_hexagonal/
 │   ├── Arquitectura_hexagonal.pdf
 │   └── [ts-birthday-greetings-kata](https://github.com/jartigag/ts-birthday-greetings-kata/tree/first-try)
-└── 2021-11-09-arquitectura_hexagonal/
-.   └── [ts-birthday-greetings-kata](https://github.com/jartigag/ts-birthday-greetings-kata/tree/step-by-step)
+│── 2021-11-09-arquitectura_hexagonal/
+│   └── [ts-birthday-greetings-kata](https://github.com/jartigag/ts-birthday-greetings-kata/tree/step-by-step)
+└── 2021-11-12-naming/
+.   └── Copia_de_Naming_sin_animaciones.pdf
 </pre></big>

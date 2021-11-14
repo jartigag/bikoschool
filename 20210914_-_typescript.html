@@ -155,11 +155,25 @@
 <p>Interfaz: &quot;el contrato que tenemos que cumplir&quot;</p>
 </li>
 </ul>
-<pre><code class="language-typescript">class Cat implements Animal 
+<pre><code class="language-typescript">interface Animal {
+  type: string;
+  name?: string;
+}
+class Cat implements Animal {
+    constructor(public type: string) {}
+    ...
+}
 </code></pre>
 <pre><code class="language-typescript">class Pokemon {
 	constructor(private nombre: string) {}
 }
+</code></pre>
+<pre><code class="language-typescript">/* Encadenamiento opcional u optional chaining (?.)
+El operador ?. funciona de manera similar a el operador de encadenamiento .,
+excepto que en lugar de causar un error si una referencia es casi-nula (null o undefined),
+la expresión hace una evaluación de circuito corto con un valor de retorno de undefined.
+Puedes saber más en: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining */
+const getName = (animal?: Animal) =&gt; animal?.name;
 </code></pre>
 <h2 id="tell-dont-ask"><a class="header" href="#tell-dont-ask">&quot;Tell, don't ask&quot;</a></h2>
 <p>A una clase le tengo que pedir el nombre (<code>getName()</code>), no preguntarle por el nombre (<code>this.name</code>).</p>

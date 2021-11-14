@@ -245,6 +245,10 @@ bicycle.setGear(3);
 	}
 })();
 </code></pre>
+<h2 id="a-hrefhttpsdevelopermozillaorgen-usdocswebjavascriptreferenceoperatorsnullish_coalescing_operatornullish-coalescinga"><a class="header" href="#a-hrefhttpsdevelopermozillaorgen-usdocswebjavascriptreferenceoperatorsnullish_coalescing_operatornullish-coalescinga"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator">Nullish coalescing</a></a></h2>
+<pre><code class="language-javascript">const getName = (animal) =&gt; { return animal.name ?? 'Toby' };
+</code></pre>
+<pre><code></code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="typescript"><a class="header" href="#typescript">Typescript</a></h1>
 <ul>
 <li>
@@ -266,11 +270,25 @@ bicycle.setGear(3);
 <p>Interfaz: &quot;el contrato que tenemos que cumplir&quot;</p>
 </li>
 </ul>
-<pre><code class="language-typescript">class Cat implements Animal 
+<pre><code class="language-typescript">interface Animal {
+  type: string;
+  name?: string;
+}
+class Cat implements Animal {
+    constructor(public type: string) {}
+    ...
+}
 </code></pre>
 <pre><code class="language-typescript">class Pokemon {
 	constructor(private nombre: string) {}
 }
+</code></pre>
+<pre><code class="language-typescript">/* Encadenamiento opcional u optional chaining (?.)
+El operador ?. funciona de manera similar a el operador de encadenamiento .,
+excepto que en lugar de causar un error si una referencia es casi-nula (null o undefined),
+la expresión hace una evaluación de circuito corto con un valor de retorno de undefined.
+Puedes saber más en: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining */
+const getName = (animal?: Animal) =&gt; animal?.name;
 </code></pre>
 <h2 id="tell-dont-ask"><a class="header" href="#tell-dont-ask">&quot;Tell, don't ask&quot;</a></h2>
 <p>A una clase le tengo que pedir el nombre (<code>getName()</code>), no preguntarle por el nombre (<code>this.name</code>).</p>
@@ -860,7 +878,7 @@ Lo que busca este patrón de diseño es extraer la responsabilidad de creación 
 <p>❌ Nombres acoplados al tipo de variable
 -&gt; Evitar porque provoca desinformación.</p>
 <p>❌ Nombres parecidos (ej.: <code>cust, customer</code>, <code>getList, getLists</code>)
--&gt; Hay que hacer que los nombres sean significativamente distingos.</p>
+-&gt; Hay que hacer que los nombres sean significativamente distintos.</p>
 <p>🟢 Nombres pronunciables.</p>
 <p>❌ Objetos &quot;dios&quot; (ej: <code>HttpUtils</code>)
 -&gt; ¿Qué responsabilidad tiene?
@@ -872,10 +890,10 @@ Es un problema de diseño. Indica que no estamos concretando lo suficiente la re
 <ul>
 <li>
 <p>Cuanto hay conceptos de negocio complejos/difíciles de traducir.
--&gt; Establecer un diccionario de equipo (importa decidir qué palabra usamos para refernirnos a cada concepto).</p>
+-&gt; Establecer un diccionario de equipo (lo importante es decidir qué palabra usamos para refernirnos a cada concepto).</p>
 </li>
 <li>
-<p>Mayúsculas/minúsculas: importante. Ej.: Ficheros en Linux son sensibles a mayúsculas, en Windows no.</p>
+<p>Ojo Mayúsculas/minúsculas. Ej.: Ficheros en Linux son sensibles a mayúsculas, en Windows no.</p>
 </li>
 <li>
 <p>Reuniones de <em>concerns</em> técnicas (2x30 mins / semana). Después, alguien aplica los cambios retroactivamente.</p>

@@ -3,7 +3,8 @@
 deploy: book
 	 @echo "====> deploying to github pages"
 	 mkdir -p /tmp/book/
-	 @status=$$(git worktree remove /tmp/book/); if test "x$${status}" = x; then git worktree add /tmp/book gh-pages; fi
+	 git worktree prune
+	 git worktree add /tmp/book gh-pages
 	 rm -rf /tmp/book/*
 	 cp -rp notas/book/* /tmp/book/
 	 cd /tmp/book && \

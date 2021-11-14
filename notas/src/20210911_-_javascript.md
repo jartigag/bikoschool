@@ -50,4 +50,3 @@ let funModule = (function(){
 ```javascript
 const getName = (animal) => { return animal.name ?? 'Toby' };
 ```
-```

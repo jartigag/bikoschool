@@ -45,3 +45,9 @@ let funModule = (function(){
 	}
 })();
 ```
+
+## [Nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+```javascript
+const getName = (animal) => { return animal.name ?? 'Toby' };
+```
+```

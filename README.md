@@ -1,3 +1,9 @@
+## proyecto vehicular
+
+[https://github.com/jartigag/bikoschool2021-proyecto]()
+
+## clases teórico-prácticas
+
 <big><pre>
 biko/
 ├── [2021-09-11-js-strikes-again/](https://github.com/jartigag/js-strikes-again)

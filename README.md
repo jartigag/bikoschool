@@ -65,10 +65,12 @@ biko/
 ├── 2021-11-06-arquitectura_hexagonal/
 │   ├── Arquitectura_hexagonal.pdf
 │   └── [ts-birthday-greetings-kata](https://github.com/jartigag/ts-birthday-greetings-kata/tree/first-try)
-│── 2021-11-09-arquitectura_hexagonal/
+├── 2021-11-09-arquitectura_hexagonal/
 │   └── [ts-birthday-greetings-kata](https://github.com/jartigag/ts-birthday-greetings-kata/tree/step-by-step)
-│── 2021-11-12-naming/
+├── 2021-11-12-naming/
 │   └── Copia_de_Naming_sin_animaciones.pdf
-└── 2021-11-23-ux/
-.   └── Biko School - UX.pdf
+├── 2021-11-23-ux/
+│   └── Biko School - UX.pdf
+└── 2021-11-26-git_hooks_y_ci-cd
+    └── ismaelliberal.notion.site-git-hooks-ci-cd.txt
 </pre></big>

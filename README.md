@@ -72,5 +72,5 @@ biko/
 ├── 2021-11-23-ux/
 │   └── Biko School - UX.pdf
 └── 2021-11-26-git_hooks_y_ci-cd
-    └── ismaelliberal.notion.site-git-hooks-ci-cd.txt
+.   └── ismaelliberal.notion.site-git-hooks-ci-cd.txt
 </pre></big>

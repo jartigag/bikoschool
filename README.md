@@ -71,6 +71,8 @@ biko/
 │   └── Copia_de_Naming_sin_animaciones.pdf
 ├── 2021-11-23-ux/
 │   └── Biko School - UX.pdf
-└── 2021-11-26-git_hooks_y_ci-cd
-.   └── ismaelliberal.notion.site-git-hooks-ci-cd.txt
+├── 2021-11-26-git_hooks_y_ci-cd
+│   └── ismaelliberal.notion.site-git-hooks-ci-cd.txt
+└── 2021-12-09-design_systems
+.   └── Sistemas_de_diseno_y_Arquitectura_CSS.pdf
 </pre></big>

@@ -73,6 +73,8 @@ biko/
 │   └── Biko School - UX.pdf
 ├── 2021-11-26-git_hooks_y_ci-cd
 │   └── ismaelliberal.notion.site-git-hooks-ci-cd.txt
-└── 2021-12-09-design_systems
-.   └── Sistemas_de_diseno_y_Arquitectura_CSS.pdf
+├── 2021-12-09-design_systems
+│   └── Sistemas_de_diseno_y_Arquitectura_CSS.pdf
+└── 2021-12-11-refactoring-kata
+.   └── [gilded-rose-ts/](https://github.com/jartigag/gilded-rose-ts)
 </pre></big>

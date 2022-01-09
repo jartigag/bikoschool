@@ -8,6 +8,7 @@
 	- Arrays: `Array<string>`
 	- Any
 	- Union Type: `let aTextOrNumber: number|string = 5;`
+    - Generic types: `function identity<Type>(arg: Type): Type { return arg; }`
 
 - Interfaz: "el contrato que tenemos que cumplir"
 ```typescript
@@ -37,5 +38,3 @@ const getName = (animal?: Animal) => animal?.name;
 
 ## "Tell, don't ask"
 A una clase le tengo que pedir el nombre (`getName()`), no preguntarle por el nombre (`this.name`).
-
-- [ ] #to-do: Tipos genéricos

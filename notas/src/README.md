@@ -12,7 +12,7 @@
 		<th>Lugar</th>
 	</tr>
 	<tr>
-		<td>7sept-dic 2021</td>
+		<td>7sept-21dic 2021</td>
 		<td>160 h</td>
 		<td>16</td>
 		<td>Oficinas de Biko</td>

@@ -61,8 +61,6 @@ Porque el coste a futuro de cambiar eso es mucho más caro si no hacemos la abst
 > Lo que busca este patrón de diseño es extraer la responsabilidad de creación de instancias de un componente para delegarla en otro.
 > – Martin Fowler
 
-[ ] #to-do: asimilar el patrón de diseño de Inyección de Dependencias
-
 ## Estructura de carpetas
 ```
 src/

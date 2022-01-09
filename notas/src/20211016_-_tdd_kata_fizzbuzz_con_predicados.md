@@ -23,7 +23,7 @@ export const createFizzBuzz = () => {
 export const fizzBuzz = (ruleSet: Rule[]) => (n: number) =>
     ruleSet.find(rule => rule.predicate(n))!.trans(n);
     /*                                     ^ no permite que el find devuelva null,
-	                        aunque en este caso tenemos el otherwise en las reglas 
+	                        aunque en este caso tenemos el otherwise en las reglas
 							así que no haría falta.
     */
 ```

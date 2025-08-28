@@ -41,7 +41,8 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with mdBook
-        run: mdbook build
+        run: mdbook build notas/ && \
+             sed -i 's#src="_#src="https://raw.githubusercontent.com/jartigag/bikoschool/gh-pages/_#g' notas/book/*html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
